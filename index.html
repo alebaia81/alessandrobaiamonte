@@ -508,7 +508,7 @@
     <div class="absolute inset-0 bg-themeBg/80 backdrop-blur-md" onclick="closeModal()"></div>
     
     <!-- Modal Content -->
-    <div class="relative w-full max-w-4xl bg-cardBg/90 border border-cardBorder rounded-[32px] p-5 sm:p-8 shadow-2xl overflow-y-auto max-h-[92vh] sm:max-h-[90vh] transform scale-95 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]" id="modalContent" style="-webkit-overflow-scrolling: touch; overscroll-behavior: contain;">
+    <div class="relative w-full max-w-4xl bg-cardBg/90 border border-cardBorder rounded-[32px] p-5 sm:p-8 shadow-2xl max-h-[92vh] sm:max-h-[90vh] transform scale-95 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]" id="modalContent" style="overflow-y: scroll; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y;">
       
       <!-- Close Button -->
       <button onclick="closeModal()" class="absolute top-6 right-6 p-3 rounded-full bg-themeBg/50 hover:bg-accent/10 border border-cardBorder hover:border-accent/30 text-textSecondary hover:text-accent transition-all duration-300 z-10">
@@ -669,6 +669,26 @@
 
   <script>
     let openedFromModal = false;
+    let _scrollY = 0;
+
+    // iOS-safe scroll lock: position:fixed è l'unico metodo affidabile su Safari mobile
+    function lockScroll() {
+      _scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${_scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function unlockScroll() {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.overflow = '';
+      window.scrollTo(0, _scrollY);
+    }
 
     function openModal() {
       const modal = document.getElementById('projectsModal');
@@ -676,7 +696,8 @@
       modal.classList.remove('opacity-0', 'pointer-events-none');
       modalContent.classList.remove('scale-95');
       modalContent.classList.add('scale-100');
-      document.body.style.overflow = 'hidden';
+      modalContent.scrollTop = 0;
+      lockScroll();
     }
 
     function closeModal() {
@@ -685,7 +706,7 @@
       modal.classList.add('opacity-0', 'pointer-events-none');
       modalContent.classList.remove('scale-100');
       modalContent.classList.add('scale-95');
-      document.body.style.overflow = 'auto';
+      unlockScroll();
     }
     
     document.addEventListener('keydown', function(event) {
@@ -715,7 +736,7 @@
       modal.classList.remove('opacity-0', 'pointer-events-none');
       content.classList.remove('scale-95');
       content.classList.add('scale-100');
-      document.body.style.overflow = 'hidden';
+      lockScroll();
     }
 
     function closePreview() {
@@ -733,7 +754,7 @@
           openedFromModal = false;
         }, 300);
       } else {
-        document.body.style.overflow = 'auto';
+        unlockScroll();
       }
       
       setTimeout(() => {
