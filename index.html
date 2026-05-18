@@ -431,7 +431,7 @@
       </div>
 
       <!-- CARD 9: QR Code (col-span-1, row-span-1) -->
-      <div id="card-qrcode" class="md:col-span-1 md:row-span-1 bento-card rounded-[24px] p-6 flex flex-col items-center justify-between text-center stagger-9 animate-fade-in-up shimmer min-h-[140px] group cursor-pointer">
+      <div id="card-qrcode" onclick="shareProfile()" class="md:col-span-1 md:row-span-1 bento-card rounded-[24px] p-6 flex flex-col items-center justify-between text-center stagger-9 animate-fade-in-up shimmer min-h-[140px] group cursor-pointer">
         <span class="text-[10px] font-extrabold uppercase tracking-widest text-textSecondary">Share Profile</span>
         
         <!-- Beautiful vector QR code placeholder -->
@@ -617,6 +617,43 @@
         closeModal();
       }
     });
+
+    function shareProfile() {
+      const shareData = {
+        title: 'Alessandro Baiamonte - Portfolio',
+        text: 'Scopri il portfolio bento di Alessandro Baiamonte.',
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        navigator.share(shareData)
+          .catch((err) => console.log('Errore nella condivisione:', err));
+      } else {
+        // Fallback: copia negli appunti
+        navigator.clipboard.writeText(window.location.href)
+          .then(() => {
+            const toast = document.getElementById('shareToast');
+            toast.classList.remove('opacity-0', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            
+            setTimeout(() => {
+              toast.classList.remove('opacity-100', 'translate-y-0');
+              toast.classList.add('opacity-0', 'translate-y-4');
+            }, 3000);
+          })
+          .catch((err) => {
+            console.error('Impossibile copiare il link:', err);
+          });
+      }
+    }
   </script>
+
+  <!-- Toast Notification -->
+  <div id="shareToast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-cardBg/90 border border-cardBorder text-textPrimary px-6 py-3.5 rounded-full shadow-2xl backdrop-blur-md text-sm font-semibold tracking-wide pointer-events-none opacity-0 translate-y-4 transition-all duration-300 flex items-center gap-2">
+    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    Link copiato negli appunti! 🚀
+  </div>
 </body>
 </html>
