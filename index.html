@@ -20,31 +20,8 @@
   <link rel="preconnect" href="https://image.thum.io">
   <link rel="preconnect" href="https://api.microlink.io">
   
-  <!-- Tailwind CSS Play CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            display: ['Syne', 'sans-serif'],
-          },
-          colors: {
-            accent: '#7C3AED',
-            accentGlow: 'rgba(124, 58, 237, 0.15)',
-            themeBg: 'var(--bg-color)',
-            cardBg: 'var(--card-bg)',
-            cardBorder: 'var(--card-border)',
-            textPrimary: 'var(--text-primary)',
-            textSecondary: 'var(--text-secondary)',
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Static Compiled Tailwind CSS (Optimized & Minified) -->
+  <link rel="stylesheet" href="assets/style.css">
   
   <script>
     // Theme Initialization (Prevents FOUC)
@@ -210,8 +187,8 @@
           <div class="flex justify-between items-start mb-6">
             <!-- Avatar with pulsing indicator -->
             <div class="relative w-18 h-18 rounded-full bg-gradient-to-tr from-accent via-[#6D28D9] to-[#1C1917] flex items-center justify-center border-2 border-cardBorder shadow-lg group">
-              <!-- Default Image (will load once provided) -->
-              <img src="assets/avatar.avif" alt="Alessandro Baiamonte" class="w-full h-full object-cover rounded-full z-10" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+              <!-- Default Image (Optimized & Compressed) -->
+              <img src="assets/avatar.jpg" alt="Alessandro Baiamonte" class="w-full h-full object-cover rounded-full z-10" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
               <!-- Fallback Initials (shown if image fails to load) -->
               <span class="font-display text-xl font-extrabold text-white tracking-widest hidden absolute">AB</span>
               <span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 border-2 border-cardBg rounded-full pulse-green z-20"></span>
