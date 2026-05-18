@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Baiamonte;Alessandro;;;
+FN:Alessandro Baiamonte
+ORG:Presenza Digitale
+TITLE:Web Designer & Digital Strategist
+EMAIL;type=INTERNET;type=WORK;type=pref:ciao@alessandrobaiamonte.com
+URL;type=WORK:https://alessandrobaiamonte.com
+X-SOCIALPROFILE;type=linkedin:https://linkedin.com/in/alessandrobaiamonte
+X-SOCIALPROFILE;type=instagram:https://instagram.com/alessandrobaiamonte
+ADR;type=WORK:;;;;;Italia;
+NOTE:Creo esperienze digitali intuitive e coinvolgenti.
+END:VCARD
