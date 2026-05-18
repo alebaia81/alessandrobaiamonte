@@ -503,12 +503,14 @@
   </footer>
 
   <!-- Apple-Style Overlay Modal per "Vedi altri progetti" e vCard -->
-  <div id="projectsModal" class="fixed inset-0 z-50 opacity-0 pointer-events-none transition-opacity duration-300 overflow-y-auto" style="-webkit-overflow-scrolling: touch;">
-    <!-- Backdrop Blur -->
-    <div class="fixed inset-0 bg-themeBg/80 backdrop-blur-md" onclick="closeModal()"></div>
+  <div id="projectsModal" class="fixed inset-0 z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+    <!-- Backdrop Blur (separato dal livello di scroll per aggirare il bug di iOS Safari) -->
+    <div class="absolute inset-0 bg-themeBg/80 backdrop-blur-md" onclick="closeModal()"></div>
     
-    <!-- Wrapper per il centraggio verticale -->
-    <div class="flex min-h-full items-center justify-center p-4 sm:p-6">
+    <!-- Livello di Scorrimento Separato -->
+    <div class="absolute inset-0 overflow-y-auto" style="-webkit-overflow-scrolling: touch;">
+      <!-- Wrapper per il centraggio verticale -->
+      <div class="flex min-h-full items-center justify-center p-4 sm:p-6">
       
       <!-- Modal Content (senza scroll interno, cresce in base al contenuto) -->
       <div class="relative w-full max-w-4xl bg-cardBg/90 border border-cardBorder rounded-[32px] p-5 sm:p-8 shadow-2xl transform scale-95 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] my-auto" id="modalContent">
@@ -619,6 +621,7 @@
 
       </div>
       </div>
+    </div>
     </div>
   </div>
 
