@@ -522,12 +522,12 @@
   </footer>
 
   <!-- Apple-Style Overlay Modal per "Vedi altri progetti" e vCard -->
-  <div id="projectsModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+  <div id="projectsModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-300">
     <!-- Backdrop Blur -->
-    <div class="absolute inset-0 bg-themeBg/80 backdrop-blur-2xl" onclick="closeModal()"></div>
+    <div class="absolute inset-0 bg-themeBg/80 backdrop-blur-md" onclick="closeModal()"></div>
     
     <!-- Modal Content -->
-    <div class="relative w-full max-w-4xl bg-cardBg/90 border border-cardBorder rounded-[32px] p-8 shadow-2xl overflow-y-auto max-h-[90vh] transform scale-95 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" id="modalContent">
+    <div class="relative w-full max-w-4xl bg-cardBg/90 border border-cardBorder rounded-[32px] p-8 shadow-2xl overflow-y-auto max-h-[90vh] transform scale-95 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]" id="modalContent">
       
       <!-- Close Button -->
       <button onclick="closeModal()" class="absolute top-6 right-6 p-3 rounded-full bg-themeBg/50 hover:bg-accent/10 border border-cardBorder hover:border-accent/30 text-textSecondary hover:text-accent transition-all duration-300 z-10">
@@ -560,7 +560,7 @@
           <!-- Placeholder Gradient -->
           <div class="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-rose-600/20 group-hover:scale-105 transition-transform duration-700"></div>
           <!-- Live Website Screenshot Preview -->
-          <img src="https://image.thum.io/get/width/1024/crop/800/https://alebaia81.github.io/centrobellezzaketty/" alt="Centro Estetico Ketty" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" />
+          <img src="https://image.thum.io/get/width/1024/crop/800/https://alebaia81.github.io/centrobellezzaketty/" alt="Centro Estetico Ketty" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" decoding="async" />
           <!-- Dark Overlay Mask for Text Legibility -->
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
             <h3 class="font-display text-xl font-bold text-white mb-1 group-hover:text-accent transition-colors">Centro Estetico Ketty</h3>
@@ -573,7 +573,7 @@
           <!-- Placeholder Gradient -->
           <div class="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-600/20 group-hover:scale-105 transition-transform duration-700"></div>
           <!-- Live Website Screenshot Preview -->
-          <img src="https://api.microlink.io/?url=https://alebaia81.github.io/trattoriadaennio/&screenshot=true&embed=screenshot.url" alt="Trattoria Da Ennio" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" />
+          <img src="https://api.microlink.io/?url=https://alebaia81.github.io/trattoriadaennio/&screenshot=true&embed=screenshot.url" alt="Trattoria Da Ennio" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" decoding="async" />
           <!-- Dark Overlay Mask for Text Legibility -->
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
             <h3 class="font-display text-xl font-bold text-white mb-1 group-hover:text-accent transition-colors">Trattoria Da Ennio</h3>
@@ -586,7 +586,7 @@
           <!-- Placeholder Gradient -->
           <div class="absolute inset-0 bg-gradient-to-br from-indigo-400/20 to-sky-400/20 group-hover:scale-105 transition-transform duration-700"></div>
           <!-- Live Website Screenshot Preview -->
-          <img src="https://image.thum.io/get/width/1024/crop/800/https://alebaia81.github.io/weddingdemo/" alt="Wedding Planner" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" />
+          <img src="https://image.thum.io/get/width/1024/crop/800/https://alebaia81.github.io/weddingdemo/" alt="Wedding Planner" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" decoding="async" />
           <!-- Dark Overlay Mask for Text Legibility -->
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
             <h3 class="font-display text-xl font-bold text-white mb-1 group-hover:text-accent transition-colors">Wedding Planner</h3>
@@ -599,7 +599,7 @@
           <!-- Placeholder Gradient -->
           <div class="absolute inset-0 bg-gradient-to-br from-red-500/20 to-yellow-600/20 group-hover:scale-105 transition-transform duration-700"></div>
           <!-- Live Website Screenshot Preview -->
-          <img src="https://image.thum.io/get/width/1024/crop/800/https://alebaia81.github.io/al-cascinetto/" alt="Pizzeria Al Cascinetto" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" />
+          <img src="https://image.thum.io/get/width/1024/crop/800/https://alebaia81.github.io/al-cascinetto/" alt="Pizzeria Al Cascinetto" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" decoding="async" />
           <!-- Dark Overlay Mask for Text Legibility -->
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
             <h3 class="font-display text-xl font-bold text-white mb-1 group-hover:text-accent transition-colors">Pizzeria Al Cascinetto</h3>
@@ -612,7 +612,7 @@
           <!-- Placeholder Gradient -->
           <div class="absolute inset-0 bg-gradient-to-br from-slate-600/20 to-zinc-700/20 group-hover:scale-105 transition-transform duration-700"></div>
           <!-- Live Website Screenshot Preview -->
-          <img src="https://image.thum.io/get/width/1024/crop/800/https://fabbro-armelloni.vercel.app/" alt="Fabbro Armelloni" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" />
+          <img src="https://image.thum.io/get/width/1024/crop/800/https://fabbro-armelloni.vercel.app/" alt="Fabbro Armelloni" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" decoding="async" />
           <!-- Dark Overlay Mask for Text Legibility -->
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
             <h3 class="font-display text-xl font-bold text-white mb-1 group-hover:text-accent transition-colors">Fabbro Armelloni</h3>
@@ -625,7 +625,7 @@
           <!-- Placeholder Gradient -->
           <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 group-hover:scale-105 transition-transform duration-700"></div>
           <!-- Live Website Screenshot Preview -->
-          <img src="https://image.thum.io/get/width/1024/crop/800/https://alebaia81.github.io/ildeflino/" alt="Ristorante Il Delfino" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" />
+          <img src="https://image.thum.io/get/width/1024/crop/800/https://alebaia81.github.io/ildeflino/" alt="Ristorante Il Delfino" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" decoding="async" />
           <!-- Dark Overlay Mask for Text Legibility -->
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
             <h3 class="font-display text-xl font-bold text-white mb-1 group-hover:text-accent transition-colors">Ristorante Il Delfino</h3>
@@ -640,7 +640,7 @@
   <!-- Safari Mock Preview Modal -->
   <div id="previewModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 opacity-0 pointer-events-none transition-opacity duration-300">
     <!-- Backdrop -->
-    <div class="absolute inset-0 bg-themeBg/40 backdrop-blur-xl" onclick="closePreview()"></div>
+    <div class="absolute inset-0 bg-themeBg/40 backdrop-blur-md" onclick="closePreview()"></div>
     
     <!-- Browser Wrapper -->
     <div class="relative w-full max-w-5xl bg-cardBg border border-cardBorder rounded-2xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col h-[85vh]" id="previewContent">
