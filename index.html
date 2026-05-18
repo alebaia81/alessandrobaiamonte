@@ -556,7 +556,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <!-- Project 1: Centro Estetico -->
-        <a href="javascript:void(0)" onclick="closeModal(); setTimeout(() => openPreview('https://alebaia81.github.io/centrobellezzaketty/'), 300);" class="group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video hover:border-accent/30 transition-colors">
+        <a href="javascript:void(0)" onclick="openedFromModal = true; closeModal(); setTimeout(() => openPreview('https://alebaia81.github.io/centrobellezzaketty/'), 300);" class="group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video hover:border-accent/30 transition-colors">
           <!-- Placeholder Gradient -->
           <div class="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-rose-600/20 group-hover:scale-105 transition-transform duration-700"></div>
           <!-- Live Website Screenshot Preview -->
@@ -569,7 +569,7 @@
         </a>
 
         <!-- Project 2: Trattoria Da Ennio -->
-        <a href="javascript:void(0)" onclick="closeModal(); setTimeout(() => openPreview('https://alebaia81.github.io/trattoriadaennio/'), 300);" class="group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video hover:border-accent/30 transition-colors">
+        <a href="javascript:void(0)" onclick="openedFromModal = true; closeModal(); setTimeout(() => openPreview('https://alebaia81.github.io/trattoriadaennio/'), 300);" class="group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video hover:border-accent/30 transition-colors">
           <!-- Placeholder Gradient -->
           <div class="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-600/20 group-hover:scale-105 transition-transform duration-700"></div>
           <!-- Live Website Screenshot Preview -->
@@ -582,7 +582,7 @@
         </a>
 
         <!-- Project 3: Wedding Demo -->
-        <a href="javascript:void(0)" onclick="closeModal(); setTimeout(() => openPreview('https://alebaia81.github.io/weddingdemo/'), 300);" class="group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video hover:border-accent/30 transition-colors">
+        <a href="javascript:void(0)" onclick="openedFromModal = true; closeModal(); setTimeout(() => openPreview('https://alebaia81.github.io/weddingdemo/'), 300);" class="group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video hover:border-accent/30 transition-colors">
           <!-- Placeholder Gradient -->
           <div class="absolute inset-0 bg-gradient-to-br from-indigo-400/20 to-sky-400/20 group-hover:scale-105 transition-transform duration-700"></div>
           <!-- Live Website Screenshot Preview -->
@@ -595,7 +595,7 @@
         </a>
 
         <!-- Project 4: Al Cascinetto -->
-        <a href="javascript:void(0)" onclick="closeModal(); setTimeout(() => openPreview('https://alebaia81.github.io/al-cascinetto/'), 300);" class="group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video hover:border-accent/30 transition-colors">
+        <a href="javascript:void(0)" onclick="openedFromModal = true; closeModal(); setTimeout(() => openPreview('https://alebaia81.github.io/al-cascinetto/'), 300);" class="group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video hover:border-accent/30 transition-colors">
           <!-- Placeholder Gradient -->
           <div class="absolute inset-0 bg-gradient-to-br from-red-500/20 to-yellow-600/20 group-hover:scale-105 transition-transform duration-700"></div>
           <!-- Live Website Screenshot Preview -->
@@ -608,7 +608,7 @@
         </a>
 
         <!-- Project 5: Fabbro Armelloni -->
-        <a href="javascript:void(0)" onclick="closeModal(); setTimeout(() => openPreview('https://fabbro-armelloni.vercel.app/'), 300);" class="group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video hover:border-accent/30 transition-colors">
+        <a href="javascript:void(0)" onclick="openedFromModal = true; closeModal(); setTimeout(() => openPreview('https://fabbro-armelloni.vercel.app/'), 300);" class="group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video hover:border-accent/30 transition-colors">
           <!-- Placeholder Gradient -->
           <div class="absolute inset-0 bg-gradient-to-br from-slate-600/20 to-zinc-700/20 group-hover:scale-105 transition-transform duration-700"></div>
           <!-- Live Website Screenshot Preview -->
@@ -621,7 +621,7 @@
         </a>
 
         <!-- Project 6: Ristorante Il Delfino -->
-        <a href="javascript:void(0)" onclick="closeModal(); setTimeout(() => openPreview('https://alebaia81.github.io/ildeflino/'), 300);" class="group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video hover:border-accent/30 transition-colors">
+        <a href="javascript:void(0)" onclick="openedFromModal = true; closeModal(); setTimeout(() => openPreview('https://alebaia81.github.io/ildeflino/'), 300);" class="group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video hover:border-accent/30 transition-colors">
           <!-- Placeholder Gradient -->
           <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 group-hover:scale-105 transition-transform duration-700"></div>
           <!-- Live Website Screenshot Preview -->
@@ -687,6 +687,8 @@
   </div>
 
   <script>
+    let openedFromModal = false;
+
     function openModal() {
       const modal = document.getElementById('projectsModal');
       const modalContent = document.getElementById('modalContent');
@@ -743,7 +745,15 @@
       modal.classList.add('opacity-0', 'pointer-events-none');
       content.classList.remove('scale-100');
       content.classList.add('scale-95');
-      document.body.style.overflow = 'auto';
+      
+      if (openedFromModal) {
+        setTimeout(() => {
+          openModal();
+          openedFromModal = false;
+        }, 300);
+      } else {
+        document.body.style.overflow = 'auto';
+      }
       
       setTimeout(() => {
         iframe.src = '';
