@@ -4,6 +4,8 @@
   "description": "",
   "main": "tailwind.config.js",
   "scripts": {
+    "dev": "npx @tailwindcss/cli -i input.css -o assets/style.css --watch & npx live-server",
+    "build": "npx @tailwindcss/cli -i input.css -o assets/style.css --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

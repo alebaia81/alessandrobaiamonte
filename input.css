@@ -61,3 +61,10 @@ body.modal-open {
   }
 }
 
+/* Fix per evitare il taglio delle lettere con descensore (es. 'g', 'y', 'p') nel font display Syne */
+h4.font-display, .font-display {
+  line-height: 1.4;
+  padding-bottom: 0.08em;
+  font-feature-settings: "ss04" 1;
+}
+
