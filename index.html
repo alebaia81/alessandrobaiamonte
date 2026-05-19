@@ -289,7 +289,7 @@
       </div>
 
       <!-- CARD 3: Portfolio Web (col-span-1, row-span-1) -->
-      <div id="card-portfolio" onclick="openModal()" class="md:col-span-1 md:row-span-1 bento-card rounded-[24px] p-6 flex flex-col justify-between stagger-3 animate-fade-in-up shimmer min-h-[140px] group cursor-pointer hover:border-[#6366f1]/30">
+      <div id="card-portfolio" onclick="window.location.href='projects.html'" class="md:col-span-1 md:row-span-1 bento-card rounded-[24px] p-6 flex flex-col justify-between stagger-3 animate-fade-in-up shimmer min-h-[140px] group cursor-pointer hover:border-[#6366f1]/30">
         <div class="flex justify-between items-start">
           <div class="p-3 bg-gradient-to-br from-[#818CF8] to-[#4F46E5] rounded-2xl shadow-lg shadow-[#4F46E5]/20 group-hover:shadow-[#4F46E5]/40 transition-shadow">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
@@ -502,129 +502,6 @@
     </div>
   </footer>
 
-  <!-- Apple-Style Overlay Modal per "Vedi altri progetti" e vCard -->
-  <div id="projectsModal" class="fixed inset-0 z-50 opacity-0 pointer-events-none transition-opacity duration-300">
-    <!-- Backdrop Blur (separato dal livello di scroll per aggirare il bug di iOS Safari) -->
-    <div class="absolute inset-0 bg-themeBg/80 backdrop-blur-md" onclick="closeModal()"></div>
-    
-    <!-- Livello di Scorrimento Separato -->
-    <div class="absolute inset-0 overflow-y-auto" style="-webkit-overflow-scrolling: touch;">
-      <!-- Wrapper per il centraggio verticale (stira su mobile, centra su desktop) -->
-      <div class="flex min-h-full items-stretch sm:items-center justify-center p-0 sm:p-6">
-      
-      <!-- Modal Content (full-page su mobile, floating card su desktop) -->
-      <div class="relative w-full bg-themeBg border-none rounded-none p-6 pt-20 shadow-none transform scale-95 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] sm:my-auto sm:max-w-4xl sm:bg-cardBg/90 sm:border sm:border-cardBorder sm:rounded-[32px] sm:p-8 sm:shadow-2xl" id="modalContent">
-      
-      <!-- Close Button -->
-      <button onclick="closeModal()" class="absolute top-4 right-4 sm:top-6 sm:right-6 p-3 rounded-full bg-themeBg/50 hover:bg-accent/10 border border-cardBorder hover:border-accent/30 text-textSecondary hover:text-accent transition-all duration-300 z-10">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-
-      <!-- Modal Header -->
-      <div class="mb-10 text-center md:text-left pt-2">
-        <h2 class="font-display text-3xl md:text-4xl font-extrabold text-textPrimary tracking-tight mb-3">Portfolio & Archivi</h2>
-        <p class="text-textSecondary font-medium max-w-xl">Esplora una selezione dei miei case study più recenti e scarica il mio contatto per future collaborazioni.</p>
-        
-        <!-- Scarica vCard CTA -->
-        <div class="mt-6">
-          <a href="assets/alessandro_baiamonte.vcf" download="Alessandro_Baiamonte.vcf" class="inline-flex items-center gap-2 px-6 py-3.5 bg-accent text-white font-bold text-sm rounded-full hover:bg-accent/90 hover:scale-105 transition-all duration-300 shadow-xl shadow-accent/20">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l-3 3m0 0l-3-3m3 3V5.25M2.25 15.75A2.25 2.25 0 004.5 18h15A2.25 2.25 0 0021.75 15.75V15m-3 0h3c.828 0 1.5.672 1.5 1.5v3c0 .828-.672 1.5-1.5 1.5h-15A1.5 1.5 0 012.25 19.5v-3c0-.828.672-1.5 1.5-1.5h3" />
-            </svg>
-            Scarica Contatto (vCard)
-          </a>
-        </div>
-      </div>
-
-      <!-- Projects Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- Project 1: Centro Estetico -->
-        <div role="button" tabindex="0" onclick="openedFromModal = true; closeModal(); setTimeout(() => openPreview('https://alebaia81.github.io/centrobellezzaketty/'), 300);" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive">
-          <!-- Placeholder Gradient -->
-          <div class="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-rose-600/20 hover-scale-target"></div>
-          <!-- Live Website Screenshot Preview -->
-          <img src="https://image.thum.io/get/width/1024/crop/800/https://alebaia81.github.io/centrobellezzaketty/" alt="Centro Estetico" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
-          <!-- Dark Overlay Mask for Text Legibility -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
-            <h3 class="font-display text-xl font-bold text-white mb-1 hover-color-target">Centro Estetico</h3>
-            <p class="text-[11px] font-bold tracking-wider text-white/70 uppercase">Beauty • Web Design</p>
-          </div>
-        </div>
-
-        <!-- Project 2: Trattoria Da Ennio -->
-        <div role="button" tabindex="0" onclick="openedFromModal = true; closeModal(); setTimeout(() => openPreview('https://alebaia81.github.io/trattoriadaennio/'), 300);" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive">
-          <!-- Placeholder Gradient -->
-          <div class="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-600/20 hover-scale-target"></div>
-          <!-- Live Website Screenshot Preview -->
-          <img src="https://api.microlink.io/?url=https://alebaia81.github.io/trattoriadaennio/&screenshot=true&embed=screenshot.url" alt="Trattoria" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
-          <!-- Dark Overlay Mask for Text Legibility -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
-            <h3 class="font-display text-xl font-bold text-white mb-1 hover-color-target">Trattoria</h3>
-            <p class="text-[11px] font-bold tracking-wider text-white/70 uppercase">Ristorazione • Web</p>
-          </div>
-        </div>
-
-        <!-- Project 3: Wedding Demo -->
-        <div role="button" tabindex="0" onclick="openedFromModal = true; closeModal(); setTimeout(() => openPreview('https://alebaia81.github.io/weddingdemo/'), 300);" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive">
-          <!-- Placeholder Gradient -->
-          <div class="absolute inset-0 bg-gradient-to-br from-indigo-400/20 to-sky-400/20 hover-scale-target"></div>
-          <!-- Live Website Screenshot Preview -->
-          <img src="https://image.thum.io/get/width/1024/crop/800/https://alebaia81.github.io/weddingdemo/" alt="Wedding Planner" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
-          <!-- Dark Overlay Mask for Text Legibility -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
-            <h3 class="font-display text-xl font-bold text-white mb-1 hover-color-target">Wedding Planner</h3>
-            <p class="text-[11px] font-bold tracking-wider text-white/70 uppercase">Wedding • Minimal</p>
-          </div>
-        </div>
-
-        <!-- Project 4: Al Cascinetto -->
-        <div role="button" tabindex="0" onclick="openedFromModal = true; closeModal(); setTimeout(() => openPreview('https://alebaia81.github.io/al-cascinetto/'), 300);" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive">
-          <!-- Placeholder Gradient -->
-          <div class="absolute inset-0 bg-gradient-to-br from-red-500/20 to-yellow-600/20 hover-scale-target"></div>
-          <!-- Live Website Screenshot Preview -->
-          <img src="https://image.thum.io/get/width/1024/crop/800/https://alebaia81.github.io/al-cascinetto/" alt="Pizzeria" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
-          <!-- Dark Overlay Mask for Text Legibility -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
-            <h3 class="font-display text-xl font-bold text-white mb-1 hover-color-target">Pizzeria</h3>
-            <p class="text-[11px] font-bold tracking-wider text-white/70 uppercase">Pizzeria • Responsive</p>
-          </div>
-        </div>
-
-        <!-- Project 5: Fabbro Armelloni -->
-        <div role="button" tabindex="0" onclick="openedFromModal = true; closeModal(); setTimeout(() => openPreview('https://fabbro-armelloni.vercel.app/'), 300);" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive">
-          <!-- Placeholder Gradient -->
-          <div class="absolute inset-0 bg-gradient-to-br from-slate-600/20 to-zinc-700/20 hover-scale-target"></div>
-          <!-- Live Website Screenshot Preview -->
-          <img src="https://image.thum.io/get/width/1024/crop/800/https://fabbro-armelloni.vercel.app/" alt="Fabbro" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
-          <!-- Dark Overlay Mask for Text Legibility -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
-            <h3 class="font-display text-xl font-bold text-white mb-1 hover-color-target">Fabbro</h3>
-            <p class="text-[11px] font-bold tracking-wider text-white/70 uppercase">Artigiano • Landing Page</p>
-          </div>
-        </div>
-
-        <!-- Project 6: Ristorante Il Delfino -->
-        <div role="button" tabindex="0" onclick="openedFromModal = true; closeModal(); setTimeout(() => openPreview('https://alebaia81.github.io/ildeflino/'), 300);" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive">
-          <!-- Placeholder Gradient -->
-          <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 hover-scale-target"></div>
-          <!-- Live Website Screenshot Preview -->
-          <img src="https://image.thum.io/get/width/1024/crop/800/https://alebaia81.github.io/ildeflino/" alt="Ristorante" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
-          <!-- Dark Overlay Mask for Text Legibility -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
-            <h3 class="font-display text-xl font-bold text-white mb-1 hover-color-target">Ristorante</h3>
-            <p class="text-[11px] font-bold tracking-wider text-white/70 uppercase">Ristorazione • Seafood UI</p>
-          </div>
-        </div>
-
-      </div>
-      </div>
-    </div>
-    </div>
-  </div>
-
   <!-- Safari Mock Preview Modal -->
   <div id="previewModal" class="fixed inset-0 z-50 flex items-stretch md:items-center justify-center p-0 md:p-8 opacity-0 pointer-events-none transition-opacity duration-300">
     <!-- Backdrop -->
@@ -678,7 +555,6 @@
   </div>
 
   <script>
-    let openedFromModal = false;
     let scrollPosition = 0;
 
     function lockScroll() {
@@ -697,27 +573,8 @@
       }
     }
 
-    function openModal() {
-      const modal = document.getElementById('projectsModal');
-      const modalContent = document.getElementById('modalContent');
-      modal.classList.remove('opacity-0', 'pointer-events-none');
-      modalContent.classList.remove('scale-95');
-      modalContent.classList.add('scale-100');
-      lockScroll();
-    }
-
-    function closeModal() {
-      const modal = document.getElementById('projectsModal');
-      const modalContent = document.getElementById('modalContent');
-      modal.classList.add('opacity-0', 'pointer-events-none');
-      modalContent.classList.remove('scale-100');
-      modalContent.classList.add('scale-95');
-      unlockScroll();
-    }
-    
     document.addEventListener('keydown', function(event) {
       if (event.key === "Escape") {
-        closeModal();
         closePreview();
       }
     });
@@ -753,15 +610,7 @@
       modal.classList.add('opacity-0', 'pointer-events-none');
       content.classList.remove('scale-100');
       content.classList.add('scale-95');
-      
-      if (openedFromModal) {
-        setTimeout(() => {
-          openModal();
-          openedFromModal = false;
-        }, 300);
-      } else {
-        unlockScroll();
-      }
+      unlockScroll();
       
       setTimeout(() => {
         iframe.src = '';
