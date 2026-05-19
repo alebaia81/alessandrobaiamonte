@@ -18,3 +18,46 @@
 }
 
 @variant dark (&:where(.dark, .dark *));
+
+/* Body Scroll Lock per iOS e schermi touch */
+body.modal-open {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Transizioni di base per schede e immagini */
+.hover-scale-target {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform;
+}
+.hover-opacity-target {
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.hover-color-target {
+  transition: color 0.3s ease !important;
+}
+
+/* Applica l'effetto hover SOLO sui dispositivi dotati di mouse */
+@media (hover: hover) {
+  .project-card-interactive {
+    transition: border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+  
+  .project-card-interactive:hover {
+    border-color: rgba(124, 58, 237, 0.3) !important;
+  }
+
+  .project-card-interactive:hover .hover-scale-target {
+    transform: scale(1.05) !important;
+  }
+
+  .project-card-interactive:hover .hover-opacity-target {
+    opacity: 0.7 !important;
+  }
+
+  .project-card-interactive:hover .hover-color-target {
+    color: #7C3AED !important; /* Colore accent */
+  }
+}
+
