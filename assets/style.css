@@ -62,6 +62,7 @@
     --radius-lg: 0.5rem;
     --radius-xl: 0.75rem;
     --radius-2xl: 1rem;
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --animate-spin: spin 1s linear infinite;
     --blur-md: 12px;
     --aspect-video: 16 / 9;
@@ -517,9 +518,6 @@
   }
   .cursor-default {
     cursor: default;
-  }
-  .cursor-not-allowed {
-    cursor: not-allowed;
   }
   .cursor-pointer {
     cursor: pointer;
@@ -1175,12 +1173,6 @@
   }
   .text-textSecondary {
     color: var(--color-textSecondary);
-  }
-  .text-textSecondary\/40 {
-    color: var(--color-textSecondary);
-    @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-textSecondary) 40%, transparent);
-    }
   }
   .text-textSecondary\/50 {
     color: var(--color-textSecondary);
@@ -1942,6 +1934,14 @@ h4.font-display, .font-display {
   line-height: 1.4;
   padding-bottom: 0.08em;
   font-feature-settings: "ss04" 1;
+}
+.avatar-img {
+  transform: scale(1.15) translateZ(0);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.group:hover .avatar-img {
+  transform: scale(1.28) translateZ(0);
 }
 @property --tw-translate-x {
   syntax: "*";

@@ -186,9 +186,9 @@
           <!-- Top Row: Avatar & Theme Switcher -->
           <div class="flex justify-between items-start mb-6">
             <!-- Avatar with pulsing indicator -->
-            <div class="relative w-18 h-18 rounded-full bg-gradient-to-tr from-accent via-[#6D28D9] to-[#1C1917] flex items-center justify-center border-2 border-cardBorder shadow-lg group">
+            <div class="relative w-18 h-18 rounded-full bg-gradient-to-tr from-accent via-[#6D28D9] to-[#1C1917] flex items-center justify-center border-2 border-cardBorder shadow-lg group overflow-hidden">
               <!-- Default Image (Optimized & Compressed) -->
-              <img src="assets/avatar.jpg" alt="Alessandro Baiamonte" class="w-full h-full object-cover rounded-full z-10" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+              <img src="assets/avatar.jpg" alt="Alessandro Baiamonte" class="w-full h-full object-cover rounded-full z-10 avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
               <!-- Fallback Initials (shown if image fails to load) -->
               <span class="font-display text-xl font-extrabold text-white tracking-widest hidden absolute">AB</span>
               <span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 border-2 border-cardBg rounded-full pulse-green z-20"></span>
@@ -496,9 +496,9 @@
     </span>
     
     <div class="flex items-center gap-6">
-      <a href="#" class="text-xs text-textSecondary font-semibold hover:text-accent transition-colors">Behance</a>
-      <span class="text-xs text-textSecondary/40 font-semibold cursor-not-allowed" title="Presto disponibile">Instagram</span>
+      <a href="https://www.presenzadigitale.com/blog" target="_blank" rel="noopener noreferrer" class="text-xs text-textSecondary font-semibold hover:text-accent transition-colors">Blog</a>
       <a href="https://www.linkedin.com/in/alessandro-baiamonte-086672374" target="_blank" rel="noopener noreferrer" class="text-xs text-textSecondary font-semibold hover:text-accent transition-colors">LinkedIn</a>
+      <a href="https://github.com/alebaia81" target="_blank" rel="noopener noreferrer" class="text-xs text-textSecondary font-semibold hover:text-accent transition-colors">GitHub</a>
       <a href="mailto:alessandro.baiamonte@ikmail.com" class="text-xs text-textSecondary font-semibold hover:text-accent transition-colors">Email</a>
     </div>
   </footer>
