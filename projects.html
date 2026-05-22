@@ -357,10 +357,11 @@
       <!-- Split-screen Content Area -->
       <div class="flex-1 flex flex-col md:flex-row overflow-y-auto md:overflow-hidden relative">
         <!-- Left Column: Iframe Content -->
-        <div class="flex-grow bg-black relative h-[50vh] md:h-full w-full shrink-0 md:shrink">
+        <div class="flex-grow bg-black relative h-[50vh] md:h-full w-full shrink-0 md:shrink overflow-hidden">
           <div id="previewLoader" class="absolute inset-0 flex items-center justify-center bg-cardBg z-10 transition-opacity duration-300">
             <div class="w-8 h-8 border-4 border-accent border-t-transparent rounded-full animate-spin"></div>
           </div>
+          <img id="previewMobileImg" src="" alt="Anteprima Progetto" class="hidden w-full h-full object-cover object-top transition-opacity duration-300" />
           <iframe id="previewIframe" src="" class="w-full h-full border-none opacity-0 transition-opacity duration-300" onload="onIframeLoad()"></iframe>
         </div>
         
@@ -400,6 +401,14 @@
                 <!-- Dynamic badges -->
               </div>
             </div>
+            
+            <!-- Mobile CTA Link (visibile solo su mobile) -->
+            <a id="mobileLiveBtn" href="#" target="_blank" rel="noopener noreferrer" class="flex md:hidden items-center justify-center gap-2 w-full mt-4 py-3 px-4 rounded-xl bg-accent text-white font-bold text-xs uppercase tracking-wider hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/25 transition-all duration-300">
+              <span>Visita il sito live</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
@@ -421,6 +430,7 @@
         category: 'Centro Estetico',
         title: 'Centro Estetico',
         subtitle: 'Estetica Avanzata & Benessere a Caorso e Piacenza',
+        image: 'assets/preview-ketty.webp',
         desc: 'Un sito web moderno e raffinato sviluppato per un centro estetico d\'élite. Presenta in modo armonioso trattamenti viso, corpo e tecnologie di ultima generazione, con una forte spinta alle prenotazioni digitali.',
         bullets: [
           'Epilazione Laser di ultima generazione ad alta efficacia',
@@ -556,10 +566,45 @@
       urlText.textContent = domain;
       
       liveLink.href = url;
-      iframe.src = url;
-      iframe.classList.add('opacity-0');
-      loader.classList.remove('opacity-0');
-      loader.classList.add('opacity-100');
+      
+      const project = projectData[url];
+      const isMobile = window.innerWidth < 768;
+      const mobileImg = document.getElementById('previewMobileImg');
+      const mobileLiveBtn = document.getElementById('mobileLiveBtn');
+      
+      if (mobileLiveBtn) {
+        mobileLiveBtn.href = url;
+      }
+      
+      if (isMobile && project && project.image) {
+        iframe.src = '';
+        iframe.classList.add('hidden');
+        
+        mobileImg.src = project.image;
+        mobileImg.classList.remove('hidden');
+        mobileImg.classList.add('opacity-0');
+        
+        loader.classList.remove('opacity-0');
+        loader.classList.add('opacity-100');
+        
+        mobileImg.onload = () => {
+          loader.classList.remove('opacity-100');
+          loader.classList.add('opacity-0');
+          mobileImg.classList.remove('opacity-0');
+          mobileImg.classList.add('opacity-100');
+        };
+      } else {
+        if (mobileImg) {
+          mobileImg.src = '';
+          mobileImg.classList.add('hidden');
+        }
+        iframe.classList.remove('hidden');
+        
+        iframe.src = url;
+        iframe.classList.add('opacity-0');
+        loader.classList.remove('opacity-0');
+        loader.classList.add('opacity-100');
+      }
       
       // Dynamic details loading for the split-screen panel
       const project = projectData[url];
@@ -619,6 +664,10 @@
       
       setTimeout(() => {
         iframe.src = '';
+        const mobileImg = document.getElementById('previewMobileImg');
+        if (mobileImg) {
+          mobileImg.src = '';
+        }
       }, 300);
     }
     
