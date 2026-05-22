@@ -594,11 +594,11 @@
           techContainer.appendChild(span);
         });
         
-        details.classList.remove('hidden');
-        details.classList.add('flex');
-      } else if (details) {
-        details.classList.add('hidden');
         details.classList.remove('flex');
+        details.classList.add('hidden', 'md:flex');
+      } else if (details) {
+        details.classList.remove('md:flex', 'flex');
+        details.classList.add('hidden');
       }
       
       modal.classList.remove('opacity-0', 'pointer-events-none');
