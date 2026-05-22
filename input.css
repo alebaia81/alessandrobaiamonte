@@ -32,6 +32,7 @@ body.modal-open {
   will-change: transform;
 }
 .hover-opacity-target {
+  opacity: 0.88; /* Clearly visible, high-quality screenshot preview by default */
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 .hover-color-target {
@@ -41,19 +42,20 @@ body.modal-open {
 /* Applica l'effetto hover SOLO sui dispositivi dotati di mouse */
 @media (hover: hover) {
   .project-card-interactive {
-    transition: border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition: border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
   
   .project-card-interactive:hover {
-    border-color: rgba(124, 58, 237, 0.3) !important;
+    border-color: rgba(124, 58, 237, 0.4) !important;
+    box-shadow: 0 12px 30px -10px rgba(124, 58, 237, 0.2) !important;
   }
 
   .project-card-interactive:hover .hover-scale-target {
-    transform: scale(1.05) !important;
+    transform: scale(1.06) !important;
   }
 
   .project-card-interactive:hover .hover-opacity-target {
-    opacity: 0.7 !important;
+    opacity: 1.0 !important; /* Beautifully crisp, vibrant, full opacity on hover */
   }
 
   .project-card-interactive:hover .hover-color-target {

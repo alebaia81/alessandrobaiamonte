@@ -11,10 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   
-  <!-- DNS Prefetch & Preconnect for Screenshot APIs -->
-  <link rel="preconnect" href="https://image.thum.io">
-  <link rel="preconnect" href="https://api.microlink.io">
-  
+
   <!-- Static Compiled Tailwind CSS -->
   <link rel="stylesheet" href="assets/style.css">
   
@@ -70,6 +67,20 @@
     }
     ::-webkit-scrollbar-thumb:hover {
       background: #2C2C2E;
+    }
+
+    #previewDetails::-webkit-scrollbar {
+      width: 6px;
+    }
+    #previewDetails::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    #previewDetails::-webkit-scrollbar-thumb {
+      background: var(--card-border);
+      border-radius: 99px;
+    }
+    #previewDetails::-webkit-scrollbar-thumb:hover {
+      background: var(--text-secondary);
     }
 
     /* GPU-accelerated entrance animation */
@@ -132,80 +143,173 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
       <!-- Project 1: Centro Estetico -->
-      <div role="button" tabindex="0" onclick="openPreview('https://alebaia81.github.io/centrobellezzaketty/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive">
+      <div role="button" tabindex="0" onclick="openPreview('https://alebaia81.github.io/centrobellezzaketty/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive shadow-sm">
         <!-- Placeholder Gradient -->
         <div class="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-rose-600/20 hover-scale-target"></div>
         <!-- Live Website Screenshot Preview -->
-        <img src="https://image.thum.io/get/width/1024/crop/800/https://alebaia81.github.io/centrobellezzaketty/" alt="Centro Estetico" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
-        <!-- Dark Overlay Mask for Text Legibility -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
-          <h3 class="font-display text-xl font-bold text-white mb-1 hover-color-target">Centro Estetico</h3>
-          <p class="text-[11px] font-bold tracking-wider text-white/70 uppercase">Beauty • Web Design</p>
+        <img src="assets/preview-ketty.webp" alt="Centro Estetico" class="absolute inset-0 w-full h-full object-cover object-top hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
+        <!-- Sleek Modern Floating Glass Panel for Text Legibility -->
+        <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl bg-black/45 dark:bg-black/60 backdrop-blur-md border border-white/10 dark:border-white/5 z-20 flex items-center justify-between transition-all duration-300 group-hover:bg-black/60 group-hover:border-accent/30 shadow-lg">
+          <div>
+            <h3 class="font-display text-base md:text-lg font-bold text-white tracking-tight transition-colors duration-300">Centro Estetico</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shrink-0 ml-3">
+            <svg class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </div>
         </div>
       </div>
 
-      <!-- Project 2: Trattoria Da Ennio -->
-      <div role="button" tabindex="0" onclick="openPreview('https://alebaia81.github.io/trattoriadaennio/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive">
+      <!-- Project 2: Trattoria -->
+      <div role="button" tabindex="0" onclick="openPreview('https://alebaia81.github.io/trattoriadaennio/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive shadow-sm">
         <!-- Placeholder Gradient -->
         <div class="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-600/20 hover-scale-target"></div>
         <!-- Live Website Screenshot Preview -->
-        <img src="https://api.microlink.io/?url=https://alebaia81.github.io/trattoriadaennio/&screenshot=true&embed=screenshot.url" alt="Trattoria" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
-        <!-- Dark Overlay Mask for Text Legibility -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
-          <h3 class="font-display text-xl font-bold text-white mb-1 hover-color-target">Trattoria</h3>
-          <p class="text-[11px] font-bold tracking-wider text-white/70 uppercase">Ristorazione • Web</p>
+        <img src="assets/preview-ennio.webp" alt="Trattoria" class="absolute inset-0 w-full h-full object-cover object-top hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
+        <!-- Sleek Modern Floating Glass Panel for Text Legibility -->
+        <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl bg-black/45 dark:bg-black/60 backdrop-blur-md border border-white/10 dark:border-white/5 z-20 flex items-center justify-between transition-all duration-300 group-hover:bg-black/60 group-hover:border-accent/30 shadow-lg">
+          <div>
+            <h3 class="font-display text-base md:text-lg font-bold text-white tracking-tight transition-colors duration-300">Trattoria</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shrink-0 ml-3">
+            <svg class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </div>
         </div>
       </div>
 
       <!-- Project 3: Wedding Demo -->
-      <div role="button" tabindex="0" onclick="openPreview('https://alebaia81.github.io/weddingdemo/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive">
+      <div role="button" tabindex="0" onclick="openPreview('https://alebaia81.github.io/weddingdemo/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive shadow-sm">
         <!-- Placeholder Gradient -->
         <div class="absolute inset-0 bg-gradient-to-br from-indigo-400/20 to-sky-400/20 hover-scale-target"></div>
         <!-- Live Website Screenshot Preview -->
-        <img src="https://image.thum.io/get/width/1024/crop/800/https://alebaia81.github.io/weddingdemo/" alt="Wedding Planner" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
-        <!-- Dark Overlay Mask for Text Legibility -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
-          <h3 class="font-display text-xl font-bold text-white mb-1 hover-color-target">Wedding Planner</h3>
-          <p class="text-[11px] font-bold tracking-wider text-white/70 uppercase">Wedding • Minimal</p>
+        <img src="assets/preview-wedding.webp" alt="Wedding Planner" class="absolute inset-0 w-full h-full object-cover object-top hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
+        <!-- Sleek Modern Floating Glass Panel for Text Legibility -->
+        <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl bg-black/45 dark:bg-black/60 backdrop-blur-md border border-white/10 dark:border-white/5 z-20 flex items-center justify-between transition-all duration-300 group-hover:bg-black/60 group-hover:border-accent/30 shadow-lg">
+          <div>
+            <h3 class="font-display text-base md:text-lg font-bold text-white tracking-tight transition-colors duration-300">Wedding Planner</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shrink-0 ml-3">
+            <svg class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </div>
         </div>
       </div>
 
-      <!-- Project 4: Al Cascinetto -->
-      <div role="button" tabindex="0" onclick="openPreview('https://alebaia81.github.io/al-cascinetto/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive">
+      <!-- Project 4: Pizzeria -->
+      <div role="button" tabindex="0" onclick="openPreview('https://alebaia81.github.io/al-cascinetto/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive shadow-sm">
         <!-- Placeholder Gradient -->
         <div class="absolute inset-0 bg-gradient-to-br from-red-500/20 to-yellow-600/20 hover-scale-target"></div>
         <!-- Live Website Screenshot Preview -->
-        <img src="https://image.thum.io/get/width/1024/crop/800/https://alebaia81.github.io/al-cascinetto/" alt="Pizzeria" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
-        <!-- Dark Overlay Mask for Text Legibility -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
-          <h3 class="font-display text-xl font-bold text-white mb-1 hover-color-target">Pizzeria</h3>
-          <p class="text-[11px] font-bold tracking-wider text-white/70 uppercase">Pizzeria • Responsive</p>
+        <img src="assets/preview-cascinetto.webp" alt="Pizzeria" class="absolute inset-0 w-full h-full object-cover object-top hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
+        <!-- Sleek Modern Floating Glass Panel for Text Legibility -->
+        <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl bg-black/45 dark:bg-black/60 backdrop-blur-md border border-white/10 dark:border-white/5 z-20 flex items-center justify-between transition-all duration-300 group-hover:bg-black/60 group-hover:border-accent/30 shadow-lg">
+          <div>
+            <h3 class="font-display text-base md:text-lg font-bold text-white tracking-tight transition-colors duration-300">Pizzeria</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shrink-0 ml-3">
+            <svg class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </div>
         </div>
       </div>
 
-      <!-- Project 5: Fabbro Armelloni -->
-      <div role="button" tabindex="0" onclick="openPreview('https://fabbro-armelloni.vercel.app/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive">
+      <!-- Project 5: Fabbro -->
+      <div role="button" tabindex="0" onclick="openPreview('https://fabbro-armelloni.vercel.app/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive shadow-sm">
         <!-- Placeholder Gradient -->
         <div class="absolute inset-0 bg-gradient-to-br from-slate-600/20 to-zinc-700/20 hover-scale-target"></div>
         <!-- Live Website Screenshot Preview -->
-        <img src="https://image.thum.io/get/width/1024/crop/800/https://fabbro-armelloni.vercel.app/" alt="Fabbro" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
-        <!-- Dark Overlay Mask for Text Legibility -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
-          <h3 class="font-display text-xl font-bold text-white mb-1 hover-color-target">Fabbro</h3>
-          <p class="text-[11px] font-bold tracking-wider text-white/70 uppercase">Artigiano • Landing Page</p>
+        <img src="assets/preview-armelloni.webp" alt="Fabbro" class="absolute inset-0 w-full h-full object-cover object-top hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
+        <!-- Sleek Modern Floating Glass Panel for Text Legibility -->
+        <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl bg-black/45 dark:bg-black/60 backdrop-blur-md border border-white/10 dark:border-white/5 z-20 flex items-center justify-between transition-all duration-300 group-hover:bg-black/60 group-hover:border-accent/30 shadow-lg">
+          <div>
+            <h3 class="font-display text-base md:text-lg font-bold text-white tracking-tight transition-colors duration-300">Fabbro</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shrink-0 ml-3">
+            <svg class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </div>
         </div>
       </div>
 
-      <!-- Project 6: Ristorante Il Delfino -->
-      <div role="button" tabindex="0" onclick="openPreview('https://alebaia81.github.io/ildeflino/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive">
+      <!-- Project 6: Ristorante -->
+      <div role="button" tabindex="0" onclick="openPreview('https://alebaia81.github.io/ildeflino/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive shadow-sm">
         <!-- Placeholder Gradient -->
         <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 hover-scale-target"></div>
         <!-- Live Website Screenshot Preview -->
-        <img src="https://image.thum.io/get/width/1024/crop/800/https://alebaia81.github.io/ildeflino/" alt="Ristorante" class="absolute inset-0 w-full h-full object-cover object-top opacity-50 hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
-        <!-- Dark Overlay Mask for Text Legibility -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 flex flex-col justify-end p-6">
-          <h3 class="font-display text-xl font-bold text-white mb-1 hover-color-target">Ristorante</h3>
-          <p class="text-[11px] font-bold tracking-wider text-white/70 uppercase">Ristorazione • Seafood UI</p>
+        <img src="assets/preview-delfino.webp" alt="Ristorante" class="absolute inset-0 w-full h-full object-cover object-top hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
+        <!-- Sleek Modern Floating Glass Panel for Text Legibility -->
+        <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl bg-black/45 dark:bg-black/60 backdrop-blur-md border border-white/10 dark:border-white/5 z-20 flex items-center justify-between transition-all duration-300 group-hover:bg-black/60 group-hover:border-accent/30 shadow-lg">
+          <div>
+            <h3 class="font-display text-base md:text-lg font-bold text-white tracking-tight transition-colors duration-300">Ristorante</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shrink-0 ml-3">
+            <svg class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 7: Idraulico -->
+      <div role="button" tabindex="0" onclick="openPreview('https://alebaia81.github.io/Idraulicomanenti/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive shadow-sm">
+        <!-- Placeholder Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-sky-600/20 hover-scale-target"></div>
+        <!-- Live Website Screenshot Preview -->
+        <img src="assets/preview-idraulico.webp" alt="Idraulico" class="absolute inset-0 w-full h-full object-cover object-top hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
+        <!-- Sleek Modern Floating Glass Panel for Text Legibility -->
+        <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl bg-black/45 dark:bg-black/60 backdrop-blur-md border border-white/10 dark:border-white/5 z-20 flex items-center justify-between transition-all duration-300 group-hover:bg-black/60 group-hover:border-accent/30 shadow-lg">
+          <div>
+            <h3 class="font-display text-base md:text-lg font-bold text-white tracking-tight transition-colors duration-300">Idraulico</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shrink-0 ml-3">
+            <svg class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 8: Tinteggiature -->
+      <div role="button" tabindex="0" onclick="openPreview('https://alebaia81.github.io/Tinteggiaturedemo/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive shadow-sm">
+        <!-- Placeholder Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-yellow-600/20 hover-scale-target"></div>
+        <!-- Live Website Screenshot Preview -->
+        <img src="assets/preview-tinteggiatore.webp" alt="Tinteggiature" class="absolute inset-0 w-full h-full object-cover object-top hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
+        <!-- Sleek Modern Floating Glass Panel for Text Legibility -->
+        <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl bg-black/45 dark:bg-black/60 backdrop-blur-md border border-white/10 dark:border-white/5 z-20 flex items-center justify-between transition-all duration-300 group-hover:bg-black/60 group-hover:border-accent/30 shadow-lg">
+          <div>
+            <h3 class="font-display text-base md:text-lg font-bold text-white tracking-tight transition-colors duration-300">Tinteggiature</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shrink-0 ml-3">
+            <svg class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 9: Hamburgeria -->
+      <div role="button" tabindex="0" onclick="openPreview('https://100portedemo.vercel.app/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive shadow-sm">
+        <!-- Placeholder Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-red-500/20 to-orange-600/20 hover-scale-target"></div>
+        <!-- Live Website Screenshot Preview -->
+        <img src="assets/preview-hamburgheria.webp" alt="Hamburgeria" class="absolute inset-0 w-full h-full object-cover object-top hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
+        <!-- Sleek Modern Floating Glass Panel for Text Legibility -->
+        <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl bg-black/45 dark:bg-black/60 backdrop-blur-md border border-white/10 dark:border-white/5 z-20 flex items-center justify-between transition-all duration-300 group-hover:bg-black/60 group-hover:border-accent/30 shadow-lg">
+          <div>
+            <h3 class="font-display text-base md:text-lg font-bold text-white tracking-tight transition-colors duration-300">Hamburgeria</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shrink-0 ml-3">
+            <svg class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </div>
         </div>
       </div>
 
@@ -216,9 +320,9 @@
   <div id="previewModal" class="fixed inset-0 z-50 flex items-stretch md:items-center justify-center p-0 md:p-8 opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="absolute inset-0 bg-themeBg/40 backdrop-blur-md" onclick="closePreview()"></div>
     
-    <div class="relative w-full bg-themeBg md:bg-cardBg border-none md:border md:border-cardBorder rounded-none md:rounded-2xl shadow-none md:shadow-2xl overflow-hidden transform scale-95 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col h-screen md:h-[85vh] md:max-w-5xl" id="previewContent">
+    <div class="relative w-full bg-themeBg md:bg-cardBg border-none md:border md:border-cardBorder rounded-none md:rounded-2xl shadow-none md:shadow-2xl overflow-hidden transform scale-95 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col h-screen md:h-[85vh] md:max-w-7xl md:w-[95vw]" id="previewContent">
       <!-- Safari Header Bar -->
-      <div class="flex items-center justify-between px-4 py-3 bg-themeBg/80 border-b border-cardBorder backdrop-blur-md">
+      <div class="flex items-center justify-between px-4 py-3 bg-themeBg/80 border-b border-cardBorder backdrop-blur-md shrink-0">
         <!-- Window Controls -->
         <div class="flex items-center gap-1.5 w-1/4">
           <button onclick="closePreview()" class="w-3 h-3 rounded-full bg-[#FF5F56] hover:brightness-75 transition-all cursor-pointer"></button>
@@ -250,12 +354,54 @@
         </div>
       </div>
       
-      <!-- Iframe Content -->
-      <div class="flex-1 bg-black relative">
-        <div id="previewLoader" class="absolute inset-0 flex items-center justify-center bg-cardBg z-10 transition-opacity duration-300">
-          <div class="w-8 h-8 border-4 border-accent border-t-transparent rounded-full animate-spin"></div>
+      <!-- Split-screen Content Area -->
+      <div class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
+        <!-- Left Column: Iframe Content -->
+        <div class="flex-grow bg-black relative h-full">
+          <div id="previewLoader" class="absolute inset-0 flex items-center justify-center bg-cardBg z-10 transition-opacity duration-300">
+            <div class="w-8 h-8 border-4 border-accent border-t-transparent rounded-full animate-spin"></div>
+          </div>
+          <iframe id="previewIframe" src="" class="w-full h-full border-none opacity-0 transition-opacity duration-300" onload="onIframeLoad()"></iframe>
         </div>
-        <iframe id="previewIframe" src="" class="w-full h-full border-none opacity-0 transition-opacity duration-300" onload="onIframeLoad()"></iframe>
+        
+        <!-- Right Column: Glassmorphic Project Details Panel -->
+        <div id="previewDetails" class="hidden md:flex flex-col w-[350px] lg:w-[380px] shrink-0 border-t md:border-t-0 md:border-l border-cardBorder bg-cardBg/90 backdrop-blur-xl p-6 overflow-y-auto justify-between transition-all duration-300">
+          <div class="flex flex-col gap-5">
+            <!-- Project Header/Category -->
+            <div>
+              <span id="detailCategory" class="text-[9px] font-bold tracking-widest uppercase text-accent bg-accent/10 px-2.5 py-1 rounded-md">PROGETTO WEB</span>
+              <h2 id="detailTitle" class="font-display text-2xl font-extrabold text-textPrimary tracking-tight mt-4">Nome Progetto</h2>
+              <p id="detailSubtitle" class="text-xs font-semibold text-textSecondary mt-1.5 leading-relaxed">Slogan o sintesi rapida</p>
+            </div>
+            
+            <!-- Custom Divider -->
+            <div class="h-px bg-cardBorder"></div>
+            
+            <!-- Description -->
+            <div>
+              <h4 class="text-[10px] font-bold text-textPrimary uppercase tracking-wider mb-2">Descrizione del Lavoro</h4>
+              <p id="detailDesc" class="text-xs text-textSecondary leading-relaxed font-medium">Testo descrittivo dettagliato...</p>
+            </div>
+            
+            <!-- Particularities (Bullets) -->
+            <div>
+              <h4 class="text-[10px] font-bold text-textPrimary uppercase tracking-wider mb-2.5">Peculiarità & Punti di Forza</h4>
+              <ul id="detailBullets" class="flex flex-col gap-2.5">
+                <!-- Dynamic bullets -->
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Tech badges wrapper -->
+          <div class="flex flex-col gap-4 mt-6 pt-5 border-t border-cardBorder shrink-0">
+            <div>
+              <h4 class="text-[9px] font-bold text-textPrimary uppercase tracking-wider mb-2">Tecnologie utilizzate</h4>
+              <div id="detailTech" class="flex flex-wrap gap-1.5">
+                <!-- Dynamic badges -->
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -268,6 +414,118 @@
   <!-- Page Interactivity Scripts -->
   <script>
     let scrollPosition = 0;
+
+    // Database dei progetti con descrizioni e particolarità
+    const projectData = {
+      'https://alebaia81.github.io/centrobellezzaketty/': {
+        category: 'Centro Estetico',
+        title: 'Centro Estetico',
+        subtitle: 'Estetica Avanzata & Benessere a Caorso e Piacenza',
+        desc: 'Un sito web moderno e raffinato sviluppato per un centro estetico d\'élite. Presenta in modo armonioso trattamenti viso, corpo e tecnologie di ultima generazione, con una forte spinta alle prenotazioni digitali.',
+        bullets: [
+          'Epilazione Laser di ultima generazione ad alta efficacia',
+          'Trattamenti viso/corpo personalizzati con tecnologie avanzate',
+          'Flusso di prenotazione digitale ottimizzato ed intuitivo'
+        ],
+        tech: ['HTML5', 'Vanilla CSS', 'JS ES6', 'Google Fonts', 'Mobile-First UI']
+      },
+      'https://alebaia81.github.io/trattoriadaennio/': {
+        category: 'Ristorazione',
+        title: 'Trattoria',
+        subtitle: 'Cucina Tipica Piacentina dal 1972',
+        desc: 'Una vetrina digitale calda e accogliente che celebra oltre cinquant\'anni di tradizione culinaria. Pensato per esaltare i sabori locali e stimolare l\'acquolina in bocca grazie a un visual design curato nei dettagli.',
+        bullets: [
+          '<em>Pisarei e Fasò</em> fatti a mano secondo l\'antica ricetta',
+          'Salumi Piacentini D.O.P. e Torta Fritta fragrante',
+          'Specialità stagionali come funghi freschi e pesce di fiume fritto'
+        ],
+        tech: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Typography', 'SEO Local']
+      },
+      'https://alebaia81.github.io/weddingdemo/': {
+        category: 'Wedding Planner',
+        title: 'Wedding Planner',
+        subtitle: 'Sito Web Matrimoniale Interattivo a Tema Autunnale',
+        desc: 'Un\'esperienza digitale intima e poetica creata per condividere i dettagli di un matrimonio da sogno. Unisce romanticismo e funzionalità tecnologica in una calda palette cromatica autunnale.',
+        bullets: [
+          'RSVP interattivo con gestione delle preferenze alimentari',
+          'Timeline interattiva della storia d\'amore degli sposi',
+          'Mappe integrate per la logistica della cerimonia e del ricevimento'
+        ],
+        tech: ['CSS Grid/Flexbox', 'GSAP Animations', 'JS Form Validation', 'Google Maps API']
+      },
+      'https://alebaia81.github.io/al-cascinetto/': {
+        category: 'Pizzeria & Ristorante',
+        title: 'Pizzeria',
+        subtitle: 'Ristorante Pizzeria a Monticelli d\'Ongina dal 1987',
+        desc: 'Sito web premium per un locale storico del piacentino. Esalta la doppia anima del locale: ristorante tradicional di carne e pesce da un lato, e pizzeria d\'eccellenza con ingredienti a km 0 dall\'altro.',
+        bullets: [
+          'Pizza a lievitazione naturale cotta in forno a legna',
+          'Menù dinamico suddiviso tra specialità di terra e di mare',
+          'Ampio giardino estivo ideale per cerimonie ed eventi privati'
+        ],
+        tech: ['Semantic HTML', 'Custom CSS Carousel', 'Interactive Menu', 'Light/Dark Modes']
+      },
+      'https://fabbro-armelloni.vercel.app/': {
+        category: 'Pronto Intervento',
+        title: 'Fabbro',
+        subtitle: 'Pronto Intervento H24 & Carpenteria Metallica a Piacenza',
+        desc: 'Landing page ad altissimo tasso di conversione (CRO) progettata per un servizio di emergenza serrature e carpenteria. La struttura trasmette immediata sicurezza, professionalità e rapidità d\'azione.',
+        bullets: [
+          'Pronto intervento serrature attivo H24 con arrivo in 30 minuti',
+          'Installazione e conversione a serrature a cilindro europeo di sicurezza',
+          'Carpenteria metallica pesante e leggera su misura (cancelli, inferriate)'
+        ],
+        tech: ['Tailwind CSS', 'Mobile Tap-to-Call Optimization', 'Local SEO Schema.org', 'Fast LCP']
+      },
+      'https://alebaia81.github.io/ildeflino/': {
+        category: 'Ristorante',
+        title: 'Ristorante',
+        subtitle: 'Specialità di Pesce Fresco & Cucina Mediterranea',
+        desc: 'Una presentazione web sofisticata che rispecchia l\'eleganza di un ristorante di pesce d\'alto livello. Il design pulito e le ampie immagini creano un\'atmosfera marina esclusiva e raffinata.',
+        bullets: [
+          'Crudités di mare, ostriche fresche e pescato del giorno selezionato',
+          'Cantina vini d\'élite abbinata con sommelier dedicato',
+          'Terrazza panoramica e sale esclusive per cene di gala ed eventi'
+        ],
+        tech: ['HSL Color System', 'CSS Variables', 'Performance Optimization', 'Custom Gallery']
+      },
+      'https://alebaia81.github.io/Idraulicomanenti/': {
+        category: 'Idraulica',
+        title: 'Idraulico',
+        subtitle: 'Termoidraulica Professionale & Risparmio Energetico',
+        desc: 'Sito istituzionale solido e chiaro per un professionista del settore termoidraulico. Mette in risalto l\'affidabilità tecnica, le certificazioni e l\'efficienza degli impianti proposti.',
+        bullets: [
+          'Installazione caldaie e condizionatori ad alta efficienza energetica',
+          'Progettazione e rifacimento bagni completi "chiavi in mano"',
+          'Riparazioni rapide e manutenzione impianti riscaldamento/climatizzazione'
+        ],
+        tech: ['Responsive Form validation', 'SEO Copywriting', 'Interactive FAQs']
+      },
+      'https://alebaia81.github.io/Tinteggiaturedemo/': {
+        category: 'Tinteggiature & Decorazioni',
+        title: 'Tinteggiature',
+        subtitle: 'Finiture Decorative d\'Interni & Isolamento Termico',
+        desc: 'Un portfolio digitale vibrante e colorato che mostra l\'artigianato e l\'arte delle finiture murali. Progettato per evidenziare la trasformazione degli ambienti e la qualità dei materiali.',
+        bullets: [
+          'Tinteggiature decorative d\'élite (velature, stucchi, effetti materici)',
+          'Posa cartongesso professionale e isolamento termico a cappotto',
+          'Standard di pulizia impeccabile e massima puntualità sul cantiere'
+        ],
+        tech: ['Visual Before/After components', 'HSL gradients', 'Smooth Scroll UI']
+      },
+      'https://100portedemo.vercel.app/': {
+        category: 'Hamburgeria Gourmet',
+        title: 'Hamburgeria',
+        subtitle: 'Burger Gourmet & Birre Artigianali Selezionate',
+        desc: 'Un sito web dallo stile "industrial-brutalist" moderno e accattivante, perfetto per una clientela giovane e amante dello street food di qualità eccellente. Mette al centro il gusto selvaggio e gli ingredienti gourmet.',
+        bullets: [
+          'Smash Burgers succulenti preparati con carne piemontese selezionata',
+          'Pane artigianale sfornato quotidianamente (soffici Brioche Bun)',
+          'Ricca selezione di birre artigianali alla spina e in bottiglia'
+        ],
+        tech: ['Dark-mode primary UI', 'dynamic hover filters', 'custom SVG elements']
+      }
+    };
 
     function lockScroll() {
       if (!document.body.classList.contains('modal-open')) {
@@ -292,6 +550,7 @@
       const loader = document.getElementById('previewLoader');
       const liveLink = document.getElementById('previewLiveLink');
       const urlText = document.getElementById('previewUrlText');
+      const details = document.getElementById('previewDetails');
       
       const domain = url.replace('https://', '').replace('http://', '').split('/')[0];
       urlText.textContent = domain;
@@ -301,6 +560,46 @@
       iframe.classList.add('opacity-0');
       loader.classList.remove('opacity-0');
       loader.classList.add('opacity-100');
+      
+      // Dynamic details loading for the split-screen panel
+      const project = projectData[url];
+      if (project && details) {
+        document.getElementById('detailCategory').textContent = project.category.toUpperCase();
+        document.getElementById('detailTitle').textContent = project.title;
+        document.getElementById('detailSubtitle').textContent = project.subtitle;
+        document.getElementById('detailDesc').textContent = project.desc;
+        
+        // Render Bullets
+        const bulletsContainer = document.getElementById('detailBullets');
+        bulletsContainer.innerHTML = '';
+        project.bullets.forEach(bullet => {
+          const li = document.createElement('li');
+          li.className = 'flex items-start gap-2 text-xs text-textSecondary leading-relaxed font-medium';
+          li.innerHTML = `
+            <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>${bullet}</span>
+          `;
+          bulletsContainer.appendChild(li);
+        });
+        
+        // Render Tech Stack Badges
+        const techContainer = document.getElementById('detailTech');
+        techContainer.innerHTML = '';
+        project.tech.forEach(techName => {
+          const span = document.createElement('span');
+          span.className = 'text-[10px] font-bold text-textSecondary bg-textPrimary/5 border border-textPrimary/10 px-2 py-0.5 rounded-md hover:border-accent/30 hover:text-accent transition-colors';
+          span.textContent = techName;
+          techContainer.appendChild(span);
+        });
+        
+        details.classList.remove('hidden');
+        details.classList.add('flex');
+      } else if (details) {
+        details.classList.add('hidden');
+        details.classList.remove('flex');
+      }
       
       modal.classList.remove('opacity-0', 'pointer-events-none');
       content.classList.remove('scale-95');
