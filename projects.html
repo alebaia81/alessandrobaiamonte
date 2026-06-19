@@ -284,7 +284,7 @@
         <!-- Sleek Modern Floating Glass Panel for Text Legibility -->
         <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl bg-black/45 dark:bg-black/60 backdrop-blur-md border border-white/10 dark:border-white/5 z-20 flex items-center justify-between transition-all duration-300 group-hover:bg-black/60 group-hover:border-accent/30 shadow-lg">
           <div>
-            <h3 class="font-display text-base md:text-lg font-bold text-white tracking-tight transition-colors duration-300">Tinteggiature</h3>
+            <h3 class="font-display text-base md:text-lg font-bold text-white tracking-tight transition-colors duration-300">Artigiano Tinteggiatore</h3>
           </div>
           <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shrink-0 ml-3">
             <svg class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -304,6 +304,25 @@
         <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl bg-black/45 dark:bg-black/60 backdrop-blur-md border border-white/10 dark:border-white/5 z-20 flex items-center justify-between transition-all duration-300 group-hover:bg-black/60 group-hover:border-accent/30 shadow-lg">
           <div>
             <h3 class="font-display text-base md:text-lg font-bold text-white tracking-tight transition-colors duration-300">Hamburgeria</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shrink-0 ml-3">
+            <svg class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 10: Segreta eCommerce -->
+      <div role="button" tabindex="0" onclick="openPreview('https://segreta.alebaia81.workers.dev/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive shadow-sm">
+        <!-- Placeholder Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-rose-400/20 to-pink-600/20 hover-scale-target"></div>
+        <!-- Live Website Screenshot Preview -->
+        <img src="assets/preview-segreta.webp" alt="Segreta eCommerce" class="absolute inset-0 w-full h-full object-cover object-top hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
+        <!-- Sleek Modern Floating Glass Panel for Text Legibility -->
+        <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl bg-black/45 dark:bg-black/60 backdrop-blur-md border border-white/10 dark:border-white/5 z-20 flex items-center justify-between transition-all duration-300 group-hover:bg-black/60 group-hover:border-accent/30 shadow-lg">
+          <div>
+            <h3 class="font-display text-base md:text-lg font-bold text-white tracking-tight transition-colors duration-300">Segreta eCommerce</h3>
           </div>
           <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shrink-0 ml-3">
             <svg class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -519,16 +538,30 @@
       },
       'https://alebaia81.github.io/Tinteggiaturedemo/': {
         category: 'Tinteggiature & Decorazioni',
-        title: 'Tinteggiature',
+        title: 'Artigiano Tinteggiatore',
         subtitle: 'Finiture Decorative d\'Interni & Isolamento Termico',
         image: 'assets/preview-tinteggiatore.webp',
-        desc: 'Un portfolio digitale vibrante e colorato che mostra l\'artigianato e l\'arte delle finiture murali. Progettato per evidenziare la trasformazione degli ambienti e la qualità dei materiali.',
+        desc: 'Un portfolio digitale vibrante e colorato che mostra l\'artigianato e l\'arte delle finiture murali. Progettato per evidenziare la trasformazione degli ambienti e la qualità dei materiali premium.',
         bullets: [
           'Tinteggiature decorative d\'élite (velature, stucchi, effetti materici)',
           'Posa cartongesso professionale e isolamento termico a cappotto',
           'Standard di pulizia impeccabile e massima puntualità sul cantiere'
         ],
         tech: ['Visual Before/After components', 'HSL gradients', 'Smooth Scroll UI']
+      },
+      'https://segreta.alebaia81.workers.dev/': {
+        category: 'Boutique & eCommerce',
+        title: 'Segreta Style',
+        subtitle: 'Moda Unica & Frizzante nel Cuore di Monticelli d\'Ongina',
+        image: 'assets/preview-segreta.webp',
+        useImage: true,
+        desc: 'eCommerce di moda donna e uomo per una boutique storica del Piacentino. Il sito unisce lo shopping online con l\'esperienza fisica del negozio, con catalogo live aggiornato in tempo reale e consulenza via WhatsApp.',
+        bullets: [
+          'Catalogo prodotti live con filtri per categoria (abiti, camicie, pantaloni, giacche)',
+          'Integrazione WhatsApp per consulenza personalizzata su taglie e abbinamenti',
+          'Vetrina Google Reviews integrata per rafforzare la fiducia dei clienti online'
+        ],
+        tech: ['Cloudflare Workers', 'eCommerce Catalog', 'WhatsApp CTA', 'Google Reviews', 'Mobile-First']
       },
       'https://100portedemo.vercel.app/': {
         category: 'Hamburgeria Gourmet',
@@ -584,7 +617,10 @@
         mobileLiveBtn.href = url;
       }
       
-      if (isMobile && project && project.image) {
+      // Use static image if on mobile OR if the project has useImage:true (e.g. sites with cookie banners)
+      const forceImage = project && project.useImage;
+      
+      if ((isMobile || forceImage) && project && project.image) {
         iframe.src = '';
         iframe.classList.add('hidden');
         
