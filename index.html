@@ -253,10 +253,10 @@
               Ultimo Progetto
             </span>
             <h3 class="font-display text-2xl font-extrabold text-textPrimary leading-tight mb-2 group-hover:text-accent transition-colors">
-              Hamburgheria — Dark Gourmet Branding
+              Segreta Style — Fashion eCommerce
             </h3>
             <p class="text-[14px] text-textSecondary max-w-md leading-relaxed font-medium">
-              Un'esperienza d'ordine digitale immersiva e ultra-rapida progettata per valorizzare un locale gourmet d'eccellenza.
+              eCommerce di moda donna e uomo per una boutique storica, integrato con catalogo prodotti live e consulenza WhatsApp.
             </p>
           </div>
         </div>
@@ -279,7 +279,7 @@
 
         <!-- Button Link -->
         <div class="flex justify-end mt-4 z-10">
-          <a href="javascript:void(0)" onclick="openPreview('https://100portedemo.vercel.app/')" class="inline-flex items-center gap-2 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 px-6 py-2.5 rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] transition-all duration-300 group/btn">
+          <a href="javascript:void(0)" onclick="openPreview('https://segreta.alebaia81.workers.dev/')" class="inline-flex items-center gap-2 text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 px-6 py-2.5 rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] transition-all duration-300 group/btn">
             Vedi progetto
             <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
@@ -525,7 +525,7 @@
           <svg class="w-3.5 h-3.5 text-green-500 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
           </svg>
-          <span id="previewUrlText">100portedemo.vercel.app</span>
+          <span id="previewUrlText">segreta.alebaia81.workers.dev</span>
         </div>
         
         <!-- Action Buttons -->
@@ -544,12 +544,13 @@
         </div>
       </div>
       
-      <!-- Iframe Content -->
-      <div class="flex-1 bg-black relative">
+      <!-- Iframe Content / Static Preview Image -->
+      <div class="flex-1 bg-black relative overflow-hidden">
         <!-- Loading spinner -->
         <div id="previewLoader" class="absolute inset-0 flex items-center justify-center bg-cardBg z-10 transition-opacity duration-300">
           <div class="w-8 h-8 border-4 border-accent border-t-transparent rounded-full animate-spin"></div>
         </div>
+        <img id="previewImage" src="" alt="Anteprima Progetto" class="hidden w-full h-full object-cover object-top transition-opacity duration-300" />
         <iframe id="previewIframe" src="" class="w-full h-full border-none opacity-0 transition-opacity duration-300" onload="onIframeLoad()"></iframe>
       </div>
     </div>
@@ -587,15 +588,41 @@
       const loader = document.getElementById('previewLoader');
       const liveLink = document.getElementById('previewLiveLink');
       const urlText = document.getElementById('previewUrlText');
+      const previewImg = document.getElementById('previewImage');
       
       const domain = url.replace('https://', '').replace('http://', '').split('/')[0];
       urlText.textContent = domain;
       
       liveLink.href = url;
-      iframe.src = url;
-      iframe.classList.add('opacity-0');
-      loader.classList.remove('opacity-0');
-      loader.classList.add('opacity-100');
+      
+      if (url === 'https://segreta.alebaia81.workers.dev/') {
+        iframe.src = '';
+        iframe.classList.add('hidden');
+        
+        previewImg.src = 'assets/preview-segreta.webp';
+        previewImg.classList.remove('hidden');
+        previewImg.classList.add('opacity-0');
+        
+        loader.classList.remove('opacity-0');
+        loader.classList.add('opacity-100');
+        
+        previewImg.onload = () => {
+          loader.classList.remove('opacity-100');
+          loader.classList.add('opacity-0');
+          previewImg.classList.remove('opacity-0');
+          previewImg.classList.add('opacity-100');
+        };
+      } else {
+        if (previewImg) {
+          previewImg.src = '';
+          previewImg.classList.add('hidden');
+        }
+        iframe.classList.remove('hidden');
+        iframe.src = url;
+        iframe.classList.add('opacity-0');
+        loader.classList.remove('opacity-0');
+        loader.classList.add('opacity-100');
+      }
       
       modal.classList.remove('opacity-0', 'pointer-events-none');
       content.classList.remove('scale-95');
@@ -607,6 +634,7 @@
       const modal = document.getElementById('previewModal');
       const content = document.getElementById('previewContent');
       const iframe = document.getElementById('previewIframe');
+      const previewImg = document.getElementById('previewImage');
       
       modal.classList.add('opacity-0', 'pointer-events-none');
       content.classList.remove('scale-100');
@@ -615,6 +643,10 @@
       
       setTimeout(() => {
         iframe.src = '';
+        if (previewImg) {
+          previewImg.src = '';
+          previewImg.classList.add('hidden');
+        }
       }, 300);
     }
     
