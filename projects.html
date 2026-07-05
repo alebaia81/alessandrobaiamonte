@@ -142,6 +142,25 @@
     <!-- Projects Grid (Identical Touch-Safe Structure) -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
+      <!-- Project 9: Burger Lab -->
+      <div role="button" tabindex="0" onclick="openPreview('https://100portedemo.pages.dev/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive shadow-sm">
+        <!-- Placeholder Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-600/20 hover-scale-target"></div>
+        <!-- Live Website Screenshot Preview -->
+        <img src="assets/preview-hamburgheria.png" alt="Burger Lab" class="absolute inset-0 w-full h-full object-cover object-top hover-opacity-target hover-scale-target pointer-events-none" loading="lazy" decoding="async" />
+        <!-- Sleek Modern Floating Glass Panel for Text Legibility -->
+        <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl bg-black/45 dark:bg-black/60 backdrop-blur-md border border-white/10 dark:border-white/5 z-20 flex items-center justify-between transition-all duration-300 group-hover:bg-black/60 group-hover:border-accent/30 shadow-lg">
+          <div>
+            <h3 class="font-display text-base md:text-lg font-bold text-white tracking-tight transition-colors duration-300">Burger Lab</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-accent group-hover:scale-110 transition-all duration-300 shrink-0 ml-3">
+            <svg class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
       <!-- Project 1: Centro Estetico -->
       <div role="button" tabindex="0" onclick="openPreview('https://alebaia81.github.io/centrobellezzaketty/')" class="block w-full text-left cursor-pointer group relative overflow-hidden rounded-2xl border border-cardBorder bg-themeBg aspect-video project-card-interactive shadow-sm">
         <!-- Placeholder Gradient -->
@@ -357,12 +376,17 @@
       <!-- Split-screen Content Area -->
       <div class="flex-1 flex flex-col md:flex-row overflow-y-auto md:overflow-hidden relative">
         <!-- Left Column: Iframe Content -->
-        <div class="flex-grow bg-black relative h-[50vh] md:h-full w-full shrink-0 md:shrink overflow-hidden">
+        <div class="flex-grow bg-themeBg relative h-[50vh] md:h-full w-full shrink-0 md:shrink overflow-hidden">
           <div id="previewLoader" class="absolute inset-0 flex items-center justify-center bg-cardBg z-10 transition-opacity duration-300">
             <div class="w-8 h-8 border-4 border-accent border-t-transparent rounded-full animate-spin"></div>
           </div>
-          <img id="previewMobileImg" src="" alt="Anteprima Progetto" class="hidden w-full h-full object-cover object-top transition-opacity duration-300" />
+          <img id="previewMobileImg" src="" alt="Anteprima Progetto" class="hidden w-full h-full object-contain object-top transition-opacity duration-300" />
           <iframe id="previewIframe" src="" class="w-full h-full border-none opacity-0 transition-opacity duration-300" onload="onIframeLoad()"></iframe>
+          
+          <!-- Floating Tab Bar (Conditional for Multi-View Projects) -->
+          <div id="previewTabBar" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/75 backdrop-blur-md border border-white/10 rounded-full p-1.5 flex items-center gap-1.5 z-30 transition-all duration-300 opacity-0 pointer-events-none">
+            <!-- Dynamic tab buttons will be injected here -->
+          </div>
         </div>
         
         <!-- Right Column: Glassmorphic Project Details Panel -->
@@ -426,6 +450,26 @@
 
     // Database dei progetti con descrizioni e particolarità
     const projectData = {
+      'https://100portedemo.pages.dev/': {
+        category: 'Ristorazione',
+        title: 'Burger Lab',
+        subtitle: 'Hamburgeria Gourmet & Birreria con Gestione Ordini Real-time',
+        image: 'assets/preview-hamburgheria.png',
+        useImage: true,
+        desc: 'Un\'applicazione web completa per una moderna hamburgeria gourmet. Il sistema unisce l\'esperienza cliente con un robusto pannello di controllo admin "Dashboard Pub" per la gestione dinamica del locale in tempo reale.',
+        bullets: [
+          'Menu digitale interattivo con possibilità di ordinare e prenotare il ritiro',
+          'Dashboard Admin per la gestione degli ordini in tempo reale con filtri di stato',
+          'Pannello per abilitare/disabilitare i piatti ed aggiornare istantaneamente i prezzi',
+          'Interfaccia ultra-veloce con animazioni fluide e design ottimizzato per smartphone'
+        ],
+        tech: ['HTML5', 'Vanilla CSS', 'Vanilla JS', 'Real-time Sync', 'Dashboard Analytics', 'Mobile-First'],
+        adminScreens: [
+          { title: 'Home Page', img: 'assets/preview-hamburgheria.png', type: 'main', urlSuffix: '' },
+          { title: 'Gestione Menù', img: 'assets/preview-hamburgheria-admin1.png', type: 'image', urlSuffix: '/admin/menu' },
+          { title: 'Gestione Ordini', img: 'assets/preview-hamburgheria-admin2.png', type: 'image', urlSuffix: '/admin/orders' }
+        ]
+      },
       'https://alebaia81.github.io/centrobellezzaketty/': {
         category: 'Centro Estetico',
         title: 'Centro Estetico',
@@ -562,6 +606,63 @@
       }
     }
 
+    function switchPreviewTab(url, tabIndex) {
+      const project = projectData[url];
+      if (!project || !project.adminScreens) return;
+      
+      const screen = project.adminScreens[tabIndex];
+      const iframe = document.getElementById('previewIframe');
+      const mobileImg = document.getElementById('previewMobileImg');
+      const loader = document.getElementById('previewLoader');
+      const urlText = document.getElementById('previewUrlText');
+      const tabBar = document.getElementById('previewTabBar');
+      
+      // Update active tab styling
+      const buttons = tabBar.querySelectorAll('button');
+      buttons.forEach((btn, index) => {
+        if (index === tabIndex) {
+          btn.className = 'bg-accent text-white px-3 py-1.5 text-[10px] sm:text-[11px] font-bold rounded-full transition-all duration-300 shadow-sm cursor-pointer border-none outline-none';
+        } else {
+          btn.className = 'text-white/70 hover:text-white hover:bg-white/10 px-3 py-1.5 text-[10px] sm:text-[11px] font-semibold rounded-full transition-all duration-300 cursor-pointer border-none outline-none';
+        }
+      });
+      
+      // Update address bar domain text
+      const domain = url.replace('https://', '').replace('http://', '').split('/')[0];
+      urlText.textContent = domain + (screen.urlSuffix || '');
+      
+      const isMobile = window.innerWidth < 768;
+      
+      if (screen.type === 'main' && !isMobile && !project.useImage) {
+        if (mobileImg) {
+          mobileImg.src = '';
+          mobileImg.classList.add('hidden');
+        }
+        iframe.classList.remove('hidden');
+        iframe.src = url;
+        iframe.classList.add('opacity-0');
+        loader.classList.remove('opacity-0');
+        loader.classList.add('opacity-100');
+      } else {
+        iframe.src = '';
+        iframe.classList.add('hidden');
+        
+        mobileImg.src = screen.img;
+        mobileImg.classList.remove('hidden');
+        mobileImg.classList.add('opacity-0');
+        
+        loader.classList.remove('opacity-0');
+        loader.classList.add('opacity-100');
+        
+        mobileImg.onload = () => {
+          loader.classList.remove('opacity-100');
+          loader.classList.add('opacity-0');
+          mobileImg.classList.remove('opacity-0');
+          mobileImg.classList.add('opacity-100');
+        };
+      }
+    }
+
     function openPreview(url) {
       const modal = document.getElementById('previewModal');
       const content = document.getElementById('previewContent');
@@ -570,6 +671,7 @@
       const liveLink = document.getElementById('previewLiveLink');
       const urlText = document.getElementById('previewUrlText');
       const details = document.getElementById('previewDetails');
+      const tabBar = document.getElementById('previewTabBar');
       
       const domain = url.replace('https://', '').replace('http://', '').split('/')[0];
       urlText.textContent = domain;
@@ -583,6 +685,32 @@
       
       if (mobileLiveBtn) {
         mobileLiveBtn.href = url;
+      }
+      
+      // Initialize dynamic tabs if project has adminScreens
+      if (tabBar) {
+        tabBar.innerHTML = '';
+        if (project && project.adminScreens) {
+          project.adminScreens.forEach((screen, index) => {
+            const btn = document.createElement('button');
+            if (index === 0) {
+              btn.className = 'bg-accent text-white px-3 py-1.5 text-[10px] sm:text-[11px] font-bold rounded-full transition-all duration-300 shadow-sm cursor-pointer border-none outline-none';
+            } else {
+              btn.className = 'text-white/70 hover:text-white hover:bg-white/10 px-3 py-1.5 text-[10px] sm:text-[11px] font-semibold rounded-full transition-all duration-300 cursor-pointer border-none outline-none';
+            }
+            btn.textContent = screen.title;
+            btn.onclick = (e) => {
+              e.stopPropagation();
+              switchPreviewTab(url, index);
+            };
+            tabBar.appendChild(btn);
+          });
+          tabBar.classList.remove('opacity-0', 'pointer-events-none');
+          tabBar.classList.add('opacity-100', 'pointer-events-auto');
+        } else {
+          tabBar.classList.remove('opacity-100', 'pointer-events-auto');
+          tabBar.classList.add('opacity-0', 'pointer-events-none');
+        }
       }
       
       // Use static image if on mobile OR if the project has useImage:true (e.g. sites with cookie banners)
